@@ -1,0 +1,18 @@
+<ul class="heroes">
+  <li *ngFor="let good of goods"
+      [class.selected]="good === selectedGood"
+      (click)="onSelect(good)">
+    <span class="badge">{{good.id}}</span> {{good.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedGood">
+
+  <h2>{{selectedGood.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedGood.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedGood.name" placeholder="name">
+    </label>
+  </div>
+</div>
